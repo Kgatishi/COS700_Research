@@ -13,8 +13,8 @@ def evalution_function(gray_image, thresholds, otsu=0.5, kapur=0.5):
     # Histogran
     hist, _ = np.histogram(gray_image, bins=range(256), density=True)
     
-    # Cumulative histogra
-    c_hist = hist.cumsum()
+    # Cumulative histogram
+    c_hist = np.cumsum(hist)
     cdf = np.cumsum(np.arange(len(hist)) * hist)
 
     # Extending histograms for convenience
@@ -53,3 +53,6 @@ if __name__ == __name__:
         if eva_res > max_eval_res:
             max_eval_res = eva_res
             opt_thresholds = thresholds
+
+    print("Thresholds :" + str(opt_thresholds))
+    print("MAX Evalution :" + str(max_eval_res))
