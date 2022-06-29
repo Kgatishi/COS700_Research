@@ -2,16 +2,16 @@
 # Displaying the sample image - Monochrome Format
 from skimage import data
 from skimage.color import rgb2gray
+import matplotlib.pyplot as plt
 
 from itertools import combinations
 import numpy as np
+from PIL import Image
 
 from otsu import otsu_get_variance
 from kapur import kapur_get_regions_entropy
 
-def evalution_function(gray_image, thresholds, otsu=0.5, kapur=0.5):
-    # Histogran
-    hist, _ = np.histogram(gray_image, bins=range(256), density=True)
+def evalution_function(hist, thresholds, otsu=0.5, kapur=0.5):
     
     # Cumulative histogram
     c_hist = np.cumsum(hist)
@@ -40,15 +40,26 @@ if __name__ == __name__:
     coffee = data.coffee()
     gray_image = rgb2gray(coffee)
     print (type(gray_image))
-    nthrs = 2
+
+    # Getting image 
+    img = np.array(Image.fromarray(coffee).convert('L'))
+    print (type(img))
+    #print (img)
+
+    # Convert image to Histogran
+    hist, _ = np.histogram(img, bins=range(256), density=True)
+    
+    
+    # Generate threshold combinations for testing
+    nthrs = 1
     thr_combinations = combinations(range(255), nthrs)
 
-    
+    # Best performing threshold combination
     max_eval_res = 0
     opt_thresholds = None
 
     for thresholds in thr_combinations:
-        eva_res = evalution_function(gray_image,thresholds)
+        eva_res = evalution_function(hist,thresholds)
 
         if eva_res > max_eval_res:
             max_eval_res = eva_res
