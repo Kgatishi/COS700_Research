@@ -26,10 +26,10 @@ def evalution_function(hist, thresholds, otsu=0.5, kapur=0.5):
     e_thresholds.extend(thresholds)
     e_thresholds.extend([len(hist) - 1])
 
-    # Computing variance for the current combination of thresholds
+    # OTSU: variance for the current combination of thresholds
     regions_var = otsu_get_variance(hist, c_hist, cdf, e_thresholds)
 
-    # Computing regions entropy for the current combination of thresholds
+    # KAPUR: regions entropy for the current combination of thresholds
     regions_entropy = kapur_get_regions_entropy(hist, c_hist, e_thresholds)
 
     return (regions_var*otsu + regions_entropy*kapur)
@@ -37,20 +37,21 @@ def evalution_function(hist, thresholds, otsu=0.5, kapur=0.5):
 
 # Sample Image of scikit-image package
 if __name__ == __name__:
+    # Getting image
     coffee = data.coffee()
+
+    # Convert using skimage
     gray_image = rgb2gray(coffee)
     print (type(gray_image))
 
-    # Getting image 
+    # Convert using numpy
     img = np.array(Image.fromarray(coffee).convert('L'))
     print (type(img))
-    #print (img)
 
     # Convert image to Histogran
     hist, _ = np.histogram(img, bins=range(256), density=True)
     
-    
-    # Generate threshold combinations for testing
+    # Generate Random threshold combinations for testing
     nthrs = 1
     thr_combinations = combinations(range(255), nthrs)
 
@@ -65,5 +66,6 @@ if __name__ == __name__:
             max_eval_res = eva_res
             opt_thresholds = thresholds
 
+    # Print the Results, Best threshold combination
     print("Thresholds :" + str(opt_thresholds))
     print("MAX Evalution :" + str(max_eval_res))
