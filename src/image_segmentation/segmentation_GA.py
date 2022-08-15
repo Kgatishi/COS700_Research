@@ -5,27 +5,44 @@ from skimage import data, io
 from PIL import Image
 #import evaluation
 
-def GA(fitness):
+def GA(bitstring):
 
+    # No automation 
+    # ----------------------------------------------------
     #fitness_function = evaluation.evalution_function
     fitness_function = 0
-
-    num_generations = 50
-    num_parents_mating = 4
-
-    sol_per_pop = 8
     num_genes = 4       # Number of thresholds
+    gene_type = int     # Might not be neccesasry if 
+    
+    init_range_low = 0
+    init_range_high = 255
 
-    init_range_low = -2
-    init_range_high = 5
+    # No automation 
+    # ----------------------------------------------------
+    num_generations = bitstring[0] % 500
 
-    parent_selection_type = "sss"
+    num_parents_mating = bitstring[2] % 5
+
+    # population size max 50
+    sol_per_pop = bitstring[3] % 50
+
+    #steady-state, roulette wheel, stochastic universal, rank, random, tournament
+    ps = ["sss"  , "rws" , "sus"  , "rank"  , "random"   , "tournament"  ]
+    parent_selection_type = ps[ bitstring[4] % len(ps) ]
+
     keep_parents = 1
+    keep_parents = bitstring[5]
 
-    crossover_type = "single_point"
+    ct = ["single_point", "two_points" , "uniform",  "scattered"] 
+    crossover_type = ct[ bitstring[6] % len(ct)]
+
+    crossover_probability = ( bitstring[7] % 100 ) * 0.01
 
     mutation_type = "random"
-    mutation_percent_genes = 10
+    mutation_type = bitstring[8]
+
+    mutation_probability =  ( bitstring[9] % 100 ) * 0.01
+
 
     ga_instance = pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
