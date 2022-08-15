@@ -38,6 +38,8 @@ def main():
 
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 4),sharex=True, sharey=True)
     ax = axes.ravel()
+    
+
 
     mse_none = mean_squared_error(img, img)
     ssim_none = SSIM(img, img)
