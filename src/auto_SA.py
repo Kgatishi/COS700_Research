@@ -20,6 +20,9 @@ def automated_SA():
     res[0]  # obtained minimum
     res[1]  # function value at minimum
     return res[0] , res[1]
+
+
+    
 def main():
     pass
 

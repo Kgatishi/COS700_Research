@@ -6,8 +6,8 @@ from itertools import combinations
 import numpy as np
 from PIL import Image
 
-from otsu import otsu_get_variance
-from kapur import kapur_get_regions_entropy
+from .otsu import otsu_get_variance
+from .kapur import kapur_get_regions_entropy
 
 
 OTSU = 0.5 
@@ -15,7 +15,8 @@ KAPUR = 1- OTSU
 image_histograms  = 0
 
 def evalution_function(solution, solution_idx):
-        
+    
+    global image_histograms
     hist = image_histograms 
     thresholds = np.sort(solution) 
 
@@ -83,5 +84,5 @@ def Main():
     print("Thresholds :" + str(opt_thresholds))
     print("MAX Evalution :" + str(max_eval_res))
 
-if __name__ == __name__:
+if __name__ == "__main__":
     Main()
