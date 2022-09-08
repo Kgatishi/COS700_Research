@@ -14,9 +14,16 @@ def automated_SA():
     nthrs = 1
     thr_combinations = combinations(range(255), nthrs)
     x0 = thr_combinations[6]     # Initial guess.
-    res = optimize.anneal(f, x0, args=histogram, schedule='boltzmann',
-                          full_output=True, maxiter=500, lower=-10,
-                          upper=10, dwell=250, disp=True)
+    res = optimize.anneal(  f, 
+                            x0, 
+                            args=histogram, 
+                            schedule='boltzmann',
+                            full_output=True, 
+                            maxiter=500, 
+                            lower=-10,
+                            upper=10, 
+                            dwell=250, 
+                            disp=True)
     res[0]  # obtained minimum
     res[1]  # function value at minimum
     return res[0] , res[1]
