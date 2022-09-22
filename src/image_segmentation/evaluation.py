@@ -6,8 +6,8 @@ from itertools import combinations
 import numpy as np
 from PIL import Image
 
-from .otsu import otsu_get_variance
-from .kapur import kapur_get_regions_entropy
+from otsu import otsu_get_variance
+from kapur import kapur_get_regions_entropy
 
 
 OTSU = 0.5 
