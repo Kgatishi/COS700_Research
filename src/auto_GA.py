@@ -135,7 +135,7 @@ def automated_GA(hist, num_thresh):
 
 
     global pool
-    with Pool(processes=10) as pool:
+    with Pool(processes=4) as pool:
         ga_instance.run()
 
         solution, solution_fitness, solution_idx = ga_instance.best_solution()
