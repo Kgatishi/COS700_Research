@@ -50,15 +50,15 @@ def fitness_function(individual, individual_idx):
     #print(num_thresholds)
     
     solution, solution_fitness = image_segmentation.segmentation_GA.threshold_GA(config, histogram, num_thresholds)
-    '''
+    
     global best_solution_fitness, solution_thresholds, configuration
     if solution_fitness > best_solution_fitness:
         best_solution_fitness = solution_fitness
         solution_thresholds = solution
         configuration = config
-    '''
+    
     #print(solution, solution_fitness)
-    return config, solution, solution_fitness
+    return solution_fitness
 
 # Genetic Algorithm  .............
 #zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -116,7 +116,7 @@ def automated_GA(hist, num_thresh):
                     {'low': 3, 'high': 10, 'step': 1},      # K_tournament
                 ]
 
-    ga_instance = PooledGA(num_generations=30,
+    ga_instance = pygad.GA(num_generations=30,
                        num_parents_mating=2,
                        fitness_func=fitness_function,
                        sol_per_pop=30,
@@ -134,14 +134,13 @@ def automated_GA(hist, num_thresh):
     #print(">>>>", num_thresholds)
 
 
-    global pool
-    with Pool(processes=4) as pool:
-        ga_instance.run()
+    
+    ga_instance.run()
 
-        solution, solution_fitness, solution_idx = ga_instance.best_solution()
-        global solution_thresholds, configuration
-        return configuration, solution, solution_fitness, solution_thresholds
-pool = 0
+    solution, solution_fitness, solution_idx = ga_instance.best_solution()
+    global solution_thresholds, configuration
+    return configuration, solution, solution_fitness, solution_thresholds
+
 def main(im):
 
     img = io.imread(im)
