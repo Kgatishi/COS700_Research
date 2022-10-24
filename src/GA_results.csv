@@ -1,0 +1,2 @@
+,num_threshold,config,fitness,thresholds,time
+0,5,"{'fitness_function': 0.9, 'num_generations': 199, 'sol_per_pop': 252, 'parent_selection_type': 'rank', 'K_tournament': 5, 'crossover_type': 'single_point', 'crossover_probability': 0.1, 'mutation_type': 'random', 'mutation_probability': 0.48}",4369223803.410285,[ 67  99 125 149 174],4216.850227594376

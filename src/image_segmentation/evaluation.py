@@ -1,6 +1,6 @@
 from skimage import data, img_as_ubyte
 from skimage.color import rgb2gray
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 from itertools import combinations
 import numpy as np
@@ -15,7 +15,8 @@ KAPUR = 1- OTSU
 image_histograms  = 0
 
 def evalution_function(solution, solution_idx):
-    
+    if(len(solution)>len(np.unique(solution))):
+        return -1
     global image_histograms
     hist = image_histograms 
     thresholds = np.sort(solution) 
