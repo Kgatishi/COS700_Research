@@ -1,37 +1,58 @@
-import pygad
-import numpy as np
-import matplotlib.pyplot as plt
-from skimage import data, io
-from PIL import Image
-from scipy import optimize
-from itertools import combinations
+"""
+Simulated Annealing Class
+"""
+import random
+import math
 
-# Simulated Annealing .............
-def automated_SA():
-    
-    np.random.seed(555)   # Seeded to allow replication.
-    x0 = np.array([2., 2.])     # Initial guess.
-    nthrs = 1
-    thr_combinations = combinations(range(255), nthrs)
-    x0 = thr_combinations[6]     # Initial guess.
-    res = optimize.anneal(  f, 
-                            x0, 
-                            args=histogram, 
-                            schedule='boltzmann',
-                            full_output=True, 
-                            maxiter=500, 
-                            lower=-10,
-                            upper=10, 
-                            dwell=250, 
-                            disp=True)
-    res[0]  # obtained minimum
-    res[1]  # function value at minimum
-    return res[0] , res[1]
+class SimulatedAnnealing:
+    def __init__(self, initialSolution, solutionEvaluator, initialTemp, finalTemp, tempReduction, neighborOperator, iterationPerTemp=100, alpha=10, beta=5):
+        self.solution = initialSolution
+        self.evaluate = solutionEvaluator
+        self.currTemp = initialTemp
+        self.finalTemp = finalTemp
+        self.iterationPerTemp = iterationPerTemp
+        self.alpha = alpha
+        self.beta = beta
+        self.neighborOperator = neighborOperator
 
+        if tempReduction == "linear":
+            self.decrementRule = self.linearTempReduction
+        elif tempReduction == "geometric":
+            self.decrementRule = self.geometricTempReduction
+        elif tempReduction == "slowDecrease":
+            self.decrementRule = self.slowDecreaseTempReduction
+        else:
+            self.decrementRule = tempReduction
 
-    
-def main():
-    pass
+    def linearTempReduction(self):
+        self.currTemp -= self.alpha
 
-if __name__ == "__main__":
-    main()
+    def geometricTempReduction(self):
+        self.currTemp *= self.alpha
+
+    def slowDecreaseTempReduction(self):
+        self.currTemp = self.currTemp / (1 + self.beta * self.currTemp)
+
+    def isTerminationCriteriaMet(self):
+        # can add more termination criteria
+        return self.currTemp <= self.finalTemp or self.neighborOperator(self.solution) == 0
+
+    def run(self):
+        while not self.isTerminationCriteriaMet():
+            # iterate that number of times
+            for i in range(self.iterationPerTemp):
+                # get all of the neighbors
+                neighbors = self.neighborOperator(self.solution)
+                # pick a random neighbor
+                newSolution = random.choice(neighbors)
+                # get the cost between the two solutions
+                cost = self.evaluate(self.solution) - self.evaluate(newSolution)
+                # if the new solution is better, accept it
+                if cost >= 0:
+                    self.solution = newSolution
+                # if the new solution is not better, accept it with a probability of e^(-cost/temp)
+                else:
+                    if random.uniform(0, 1) < math.exp(-cost / self.currTemp):
+                        self.solution = newSolution
+            # decrement the temperature
+            self.decrementRule()

@@ -40,6 +40,8 @@ def evalution_function(solution, solution_idx):
     regions_entropy = kapur_get_regions_entropy(hist, c_hist, e_thresholds)
 
     return (regions_var*OTSU + regions_entropy*KAPUR)
+    #return (regions_entropy)
+    #return (regions_var)
 
 
 # Sample Image of scikit-image package

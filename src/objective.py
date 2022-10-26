@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
-from skimage import data, img_as_float
+from skimage import data, io, img_as_float
 from skimage.color import rgb2gray
 from skimage.metrics import structural_similarity as ssim
 from skimage.metrics import mean_squared_error
@@ -23,6 +23,31 @@ def PSNR(original, segmented):
 def SSIM(original, segmented):
     ssim_val = ssim(original, segmented,data_range=segmented.max() - segmented.min())
     return ssim_val
+
+def algo(original, segmented):pass
+
+def algo2(original, segmented):pass
+
+def algorithm_thresholds(num_thresh,algorithm):
+    pass
+
+def matrix(im):
+    img = io.imread(im)
+    img2 = np.array(Image.fromarray(img).convert('L'))
+    hist, bins = np.histogram(img2, bins=range(256), density=False)
+
+    algo = ["GA","GE","SA","TS"]
+    thres = [1,3,5,7]
+    for t in thres:
+        for a in algo:
+            thres_v = algorithm_thresholds(t,a)
+            # Apply image segmentation to image based on this thresholds
+            img_converted = 0
+
+            # get matrices
+            mse = mean_squared_error(img, img)
+            ssim =SSIM(img,img_converted)
+            psnr =PSNR(img,img_converted)
 
 
 def main():

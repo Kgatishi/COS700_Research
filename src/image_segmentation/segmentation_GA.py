@@ -64,12 +64,12 @@ def main(im):
     gene_space = {
                     "fitness_function": 0.9,          # random.randint(10, 90+1) ,
                     "num_generations": 50 ,         # random.randint(50, 300+1) ,
-                    "sol_per_pop": 50,              # random.randint(50, 300+1) ,
+                    "sol_per_pop": 100,              # random.randint(50, 300+1) ,
                     "parent_selection_type": "sss", # ["sss","rws","sus","rank","random" ,"tournament"]
                     "crossover_type": "single_point", # ["single_point","two_points","uniform","scattered"] 
-                    "crossover_probability": 0.1 ,  # [0-1]
+                    "crossover_probability": 0.6 ,  # [0-1]
                     "mutation_type": "random",          # ["random","inversion","scramble","swap"]
-                    "mutation_probability": 0.1 ,   # [0-1]
+                    "mutation_probability": 0.2 ,   # [0-1]
                     "K_tournament": 3               # [3-10]
     }
     
@@ -80,6 +80,8 @@ def main(im):
         for i in range(4):
             f = threshold_GA(config=gene_space, img_hist=hist, num_thresholds=thres)
             print(thres,f)
+
+        break
     '''
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 4))
     ax = axes.ravel()

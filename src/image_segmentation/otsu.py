@@ -2,6 +2,8 @@ from itertools import combinations
 import numpy as np
 
 """Get the total entropy of regions for a given set of thresholds"""
+
+
 def otsu_get_variance(hist, c_hist, cdf, thresholds):
     
     variance = 0
@@ -18,3 +20,4 @@ def otsu_get_variance(hist, c_hist, cdf, thresholds):
         variance += weight * r_mean ** 2
 
     return variance
+

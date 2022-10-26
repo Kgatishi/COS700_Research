@@ -1,0 +1,60 @@
+wmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwm
+./image_segmentation/images/baboon.png
+-----------------------------------------------------------------------
+Time is 3957.454587459564
+1 {'fitness_function': 0.9, 'num_generations': 277, 'sol_per_pop': 81, 'parent_selection_type': 'rank', 'K_tournament': 8, 'crossover_type': 'two_points', 'crossover_probability': 0.24, 'mutation_type': 'random', 'mutation_probability':
+0.59} 4251596848.7982407 [128] 3957.454587459564
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 14221.538651943207
+3 {'fitness_function': 0.9, 'num_generations': 281, 'sol_per_pop': 174, 'parent_selection_type': 'rank', 'K_tournament': 8, 'crossover_type': 'single_point', 'crossover_probability': 0.7000000000000001, 'mutation_type': 'random', 'mutation_probability': 0.5} 4350461136.7417965 [ 85 124 160] 14221.538651943207
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 8669.592922449112
+5 {'fitness_function': 0.9, 'num_generations': 122, 'sol_per_pop': 133, 'parent_selection_type': 'sss', 'K_tournament': 3, 'crossover_type': 'two_points', 'crossover_probability': 0.75, 'mutation_type': 'random', 'mutation_probability':
+0.49} 4369223803.410285 [ 67  99 125 149 174] 8669.592922449112
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 18625.78190088272
+7 {'fitness_function': 0.9, 'num_generations': 65, 'sol_per_pop': 220, 'parent_selection_type': 'sss', 'K_tournament': 7, 'crossover_type': 'single_point', 'crossover_probability': 0.66, 'mutation_type': 'random', 'mutation_probability': 0.1} 4376128193.916094 [ 55  80 103 123 142 162 181] 18625.78190088272
+-----------------------------------------------------------------------
+wmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwm
+./image_segmentation/images/Lenna.png
+-----------------------------------------------------------------------
+Time is 4924.828630685806
+1 {'fitness_function': 0.9, 'num_generations': 88, 'sol_per_pop': 268, 'parent_selection_type': 'rank', 'K_tournament': 9, 'crossover_type': 'two_points', 'crossover_probability': 0.42, 'mutation_type': 'random', 'mutation_probability':
+0.7000000000000001} 4008171767.2002974 [117] 4924.828630685806
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 11022.07255268097
+3 {'fitness_function': 0.9, 'num_generations': 181, 'sol_per_pop': 102, 'parent_selection_type': 'sss', 'K_tournament': 3, 'crossover_type': 'uniform', 'crossover_probability': 0.54, 'mutation_type': 'random', 'mutation_probability': 0.76} 4132518982.624805 [ 80 126 170] 11022.07255268097
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 12513.798067092896
+5 {'fitness_function': 0.89, 'num_generations': 181, 'sol_per_pop': 271, 'parent_selection_type': 'sss', 'K_tournament': 7, 'crossover_type': 'uniform', 'crossover_probability': 0.29, 'mutation_type': 'random', 'mutation_probability': 0.37} 4107482945.442411 [ 72 108 135 159 187] 12513.798067092896
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 25038.59082341194
+7 {'fitness_function': 0.9, 'num_generations': 260, 'sol_per_pop': 290, 'parent_selection_type': 'sss', 'K_tournament': 7, 'crossover_type': 'two_points', 'crossover_probability': 0.81, 'mutation_type': 'random', 'mutation_probability':
+0.25} 4161049204.1345887 [ 61  87 111 131 148 167 191] 25038.59082341194
+-----------------------------------------------------------------------
+wmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwm
+./image_segmentation/images/pepper.tiff
+-----------------------------------------------------------------------
+Time is 3850.4535477161407
+1 {'fitness_function': 0.9, 'num_generations': 79, 'sol_per_pop': 109, 'parent_selection_type': 'sus', 'K_tournament': 9, 'crossover_type': 'single_point', 'crossover_probability': 0.33, 'mutation_type': 'inversion', 'mutation_probability': 0.76} 3912147928.1235194 [119] 3850.4535477161407
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 8516.429002046585
+3 {'fitness_function': 0.9, 'num_generations': 109, 'sol_per_pop': 236, 'parent_selection_type': 'rank', 'K_tournament': 7, 'crossover_type': 'single_point', 'crossover_probability': 0.85, 'mutation_type': 'random', 'mutation_probability': 0.11} 4047633153.91087 [ 62 118 165] 8516.429002046585
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 11712.846489191055
+5 {'fitness_function': 0.9, 'num_generations': 62, 'sol_per_pop': 190, 'parent_selection_type': 'rank', 'K_tournament': 7, 'crossover_type': 'uniform', 'crossover_probability': 0.29, 'mutation_type': 'random', 'mutation_probability': 0.37} 4072940213.1815696 [ 42  78 112 145 176] 11712.846489191055
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Time is 19170.74282836914
+7 {'fitness_function': 0.9, 'num_generations': 100, 'sol_per_pop': 195, 'parent_selection_type': 'sss', 'K_tournament': 3, 'crossover_type': 'single_point', 'crossover_probability': 0.12, 'mutation_type': 'random', 'mutation_probability': 0.34} 4081929548.069579 [ 38  70  94 118 145 169 192] 19170.74282836914
+-----------------------------------------------------------------------
+wmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwmwm
+./image_segmentation/images/plane.png
